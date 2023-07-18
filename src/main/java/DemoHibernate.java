@@ -23,19 +23,19 @@ public class DemoHibernate {
 
     public static void clientCrudServiceCheck() {
         ClientCrudService clientCrudService = new ClientCrudService();
-        clientCrudService.createClient("New_Client");
-        System.out.println(clientCrudService.getClientById(11));
-        clientCrudService.updateClient(5, "Updated_client");
-        clientCrudService.deleteClientById(8L);
+        clientCrudService.create("New_Client");
+        System.out.println(clientCrudService.getById(11));
+        clientCrudService.update(5, "Updated_client");
+        clientCrudService.deleteById(8L);
         System.out.println(clientCrudService.getAllClients());
     }
 
     public static void planetCrudServiceCheck() {
         PlanetCrudService planetCrudService = new PlanetCrudService();
-        planetCrudService.createPlanet("NEWPL", "New_Planet");
-        System.out.println(planetCrudService.getPlanetById("PL4"));
-        planetCrudService.updatePlanet("PL1", "Updated_Planet");
-        planetCrudService.deletePlanet("PL2");
-        System.out.println(planetCrudService.getAllPlanets());
+        planetCrudService.create("NEWPL", "New_Planet");
+        System.out.println(planetCrudService.getById("PL4"));
+        planetCrudService.update("PL1", "Updated_Planet");
+        planetCrudService.deleteById("PL2");
+        System.out.println(planetCrudService.getAll());
     }
 }
