@@ -9,12 +9,10 @@ import java.util.List;
 
 public class ClientCrudService {
     private final SessionFactory sessionFactory = HibernateUtil.getInstance().getSessionFactory();
-    public void create(String name) {
+    public void create(Client client) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         try {
-            Client client = new Client();
-            client.setName(name);
             session.persist(client);
             transaction.commit();
         } catch (Exception e) {
@@ -33,12 +31,10 @@ public class ClientCrudService {
         }
     }
 
-    public void update(long id, String name) {
+    public void update(Client client) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         try {
-            Client client = session.get(Client.class, id);
-            client.setName(name);
             session.update(client);
             transaction.commit();
         } catch (Exception e) {
